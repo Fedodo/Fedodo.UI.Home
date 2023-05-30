@@ -3,11 +3,7 @@ name: Build
 on:
   workflow_dispatch:
   push:
-    branches: [ master ]
-
-env:
-  VERSION: 0.2.${{ github.run_number }}
-  FLUTTER_VERSION: "3.7.12"
+    branches: [ main ]
 
 jobs:
   BuildWeb:
