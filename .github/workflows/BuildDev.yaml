@@ -20,6 +20,6 @@ jobs:
       - uses: Fedodo/Fedodo.Pipelines/DeployContainer@main
         with:
           KUBECTL_CONFIG: ${{ secrets.KUBECTL_CONFIG }}
-          VALUES_FILE: "./Kubernetes/values.yaml"
+          VALUES_FILE: "./deployment/values.yaml"
           MICROSERVICE: "fedodo_ui_home"
           REPO: "fedodo.ui.home"
