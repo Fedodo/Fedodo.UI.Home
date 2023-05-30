@@ -1,0 +1,17 @@
+name: Build
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  BuildWeb:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: Fedodo/Fedodo.Pipelines/BuildContainerFlutter@main
+        with:
+          DOCKERHUB_TOKEN: ${{secrets.DOCKERHUB_TOKEN}}
+          REPO: "fedodo.ui.home"
+          TAG_PREFIX: ""

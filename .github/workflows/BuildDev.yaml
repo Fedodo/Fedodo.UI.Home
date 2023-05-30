@@ -1,0 +1,25 @@
+name: BuildDev
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ dev ]
+
+jobs:
+  BuildWeb:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: Fedodo/Fedodo.Pipelines/BuildContainerFlutter@main
+        with:
+          DOCKERHUB_TOKEN: ${{secrets.DOCKERHUB_TOKEN}}
+          REPO: "fedodo.ui.home"
+          TAG_PREFIX: "dev_"
+
+      # Deploy to dev cluster
+      - uses: Fedodo/Fedodo.Pipelines/DeployContainer@main
+        with:
+          KUBECTL_CONFIG: ${{ secrets.KUBECTL_CONFIG }}
+          VALUES_FILE: "./deployment/values.yaml"
+          MICROSERVICE: "fedodo_ui_home"
+          REPO: "fedodo.ui.home"
