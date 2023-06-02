@@ -5,7 +5,7 @@ extension StringExtensions on String{
     if(kDebugMode){
       return "https://dev.fedodo.social/proxy?url=${Uri.encodeQueryComponent(this)}";
     }else{
-      return "https://${Uri.base}/proxy?url=${Uri.encodeQueryComponent(this)}";
+      return "https://${Uri.base.authority.replaceAll("home.", "")}/proxy?url=${Uri.encodeQueryComponent(this)}";
     }
   }
 }

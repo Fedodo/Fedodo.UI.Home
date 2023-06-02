@@ -18,8 +18,7 @@ class AppCard extends StatelessWidget {
     return Card(
       child: InkWell(
         onTap: () {
-          js.context
-              .callMethod('open', [link, "_self"]);
+          js.context.callMethod('open', [link, "_self"]);
         },
         child: Ink.image(
           fit: BoxFit.fill,
