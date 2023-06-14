@@ -1,15 +1,33 @@
 import 'package:fedodo_ui_home/card.dart';
 import 'package:flutter/material.dart';
+import 'package:yaml/yaml.dart';
 
 void main() {
-  runApp(const FedodoUIHome());
+  String config = const String.fromEnvironment('CONFIG');
+
+  runApp(
+    FedodoUIHome(
+      config: config,
+    ),
+  );
 }
 
 class FedodoUIHome extends StatelessWidget {
-  const FedodoUIHome({super.key});
+  const FedodoUIHome({
+    super.key,
+    required this.config,
+  });
+
+  final String config;
 
   @override
   Widget build(BuildContext context) {
+    var yaml = loadYaml(config);
+
+    // for (var element in yaml["appCards"]) {
+      
+    // }
+
     double width = MediaQuery.of(context).size.width;
 
     return MaterialApp(
