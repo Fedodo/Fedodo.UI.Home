@@ -23,14 +23,33 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    double width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(80.0),
+        padding: EdgeInsets.all(width * 0.01),
         child: GridView(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 5,
+            crossAxisCount: 4,
           ),
-          children: [
+          children: const [
+            AppCard(
+              link: "https://micro.dev.fedodo.social",
+              image: "https://fedodo.org/images/Fedodo%20Circle.png",
+            ),
+            AppCard(
+              link: "https://micro.dev.fedodo.social",
+              image: "https://fedodo.org/images/Fedodo%20Circle.png",
+            ),
+            AppCard(
+              link: "https://micro.dev.fedodo.social",
+              image: "https://fedodo.org/images/Fedodo%20Circle.png",
+            ),
+            AppCard(
+              link: "https://micro.dev.fedodo.social",
+              image: "https://fedodo.org/images/Fedodo%20Circle.png",
+            ),
             AppCard(
               link: "https://micro.dev.fedodo.social",
               image: "https://fedodo.org/images/Fedodo%20Circle.png",

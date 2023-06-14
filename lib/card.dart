@@ -15,15 +15,21 @@ class AppCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: InkWell(
-        onTap: () {
-          js.context.callMethod('open', [link, "_self"]);
-        },
-        child: Ink.image(
-          fit: BoxFit.fill,
-          image: CachedNetworkImageProvider(
-            image.asProxyString(),
+
+    double width = MediaQuery.of(context).size.width;
+
+    return Padding(
+      padding: EdgeInsets.all(width * 0.01),
+      child: Card(
+        child: InkWell(
+          onTap: () {
+            js.context.callMethod('open', [link, "_self"]);
+          },
+          child: Ink.image(
+            fit: BoxFit.fill,
+            image: CachedNetworkImageProvider(
+              image.asProxyString(),
+            ),
           ),
         ),
       ),
