@@ -9,7 +9,7 @@
             "request": "launch",
             "type": "dart",
             "toolArgs": [
-                "--dart-define=CONFIG={appCards: [{micro: {link: 'https://micro.dev.fedodo.social', image: 'https://fedodo.org/images/Fedodo%20Circle.png'}}, {micro2: {link: 'https://micro.dev.fedodo.social', image: 'https://fedodo.org/images/Fedodo%20Circle.png'}}]}",
+                "--dart-define=CONFIG={appCards: [{link: 'https://micro.dev.fedodo.social', image: 'https://fedodo.org/images/Fedodo%20Circle.png'}, {link: 'https://micro.dev.fedodo.social', image: 'https://fedodo.org/images/Fedodo%20Circle.png'}]}",
                 "--web-port=8080"
             ],
         },

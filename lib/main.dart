@@ -24,9 +24,16 @@ class FedodoUIHome extends StatelessWidget {
   Widget build(BuildContext context) {
     var yaml = loadYaml(config);
 
-    // for (var element in yaml["appCards"]) {
-      
-    // }
+    List<AppCard> appCards = [];
+
+    for (var element in yaml["appCards"]) {
+      appCards.add(
+        AppCard(
+          link: element["link"],
+          image: element["image"],
+        ),
+      );
+    }
 
     double width = MediaQuery.of(context).size.width;
 
@@ -38,28 +45,7 @@ class FedodoUIHome extends StatelessWidget {
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 4,
             ),
-            children: const [
-              AppCard(
-                link: "https://micro.dev.fedodo.social",
-                image: "https://fedodo.org/images/Fedodo%20Circle.png",
-              ),
-              AppCard(
-                link: "https://micro.dev.fedodo.social",
-                image: "https://fedodo.org/images/Fedodo%20Circle.png",
-              ),
-              AppCard(
-                link: "https://micro.dev.fedodo.social",
-                image: "https://fedodo.org/images/Fedodo%20Circle.png",
-              ),
-              AppCard(
-                link: "https://micro.dev.fedodo.social",
-                image: "https://fedodo.org/images/Fedodo%20Circle.png",
-              ),
-              AppCard(
-                link: "https://micro.dev.fedodo.social",
-                image: "https://fedodo.org/images/Fedodo%20Circle.png",
-              ),
-            ],
+            children: appCards,
           ),
         ),
       ),
