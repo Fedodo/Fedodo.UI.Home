@@ -1,4 +1,5 @@
 import 'package:fedodo_ui_home/card.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:yaml/yaml.dart';
 
@@ -43,6 +44,10 @@ class FedodoUIHome extends StatelessWidget {
 
     if (!microDisabled) {
       var url = Uri.base;
+
+      if (kDebugMode) {
+        url = Uri.parse("https://home.dev.fedodo.social");
+      }
 
       var domainName = url.authority.replaceAll("home.", "");
 

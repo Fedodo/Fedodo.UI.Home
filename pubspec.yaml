@@ -12,6 +12,8 @@ dependencies:
     sdk: flutter
   cached_network_image: ^3.2.3
   yaml: ^3.1.2
+  logger: ^1.4.0
+  flutter_svg: ^2.0.7
 
 dev_dependencies:
   flutter_test:
@@ -19,4 +21,15 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
 flutter:
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: fonts/Roboto/Roboto-Regular.ttf
+        - asset: fonts/Roboto/Roboto-Black.ttf
+    - family: NotoColorEmoji
+      fonts:
+        - asset: fonts/NotoColorEmoji-Regular.ttf
+    - family: Righteous
+      fonts:
+        - asset: fonts/Righteous-Regular.ttf
   uses-material-design: true
