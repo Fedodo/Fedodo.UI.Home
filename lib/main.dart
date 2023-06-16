@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:yaml/yaml.dart';
 
 void main() {
-  String config = const String.fromEnvironment('CONFIG');
+  String config = const String.fromEnvironment("CONFIG");
+  bool microDisabled = const String.fromEnvironment("MICRO_DISABLED") == "true";
 
   runApp(
     FedodoUIHome(
       config: config,
+      microDisabled: microDisabled,
     ),
   );
 }
@@ -16,21 +18,38 @@ class FedodoUIHome extends StatelessWidget {
   const FedodoUIHome({
     super.key,
     required this.config,
+    required this.microDisabled,
   });
 
   final String config;
+  final bool microDisabled;
 
   @override
   Widget build(BuildContext context) {
-    var yaml = loadYaml(config);
-
     List<AppCard> appCards = [];
 
-    for (var element in yaml["appCards"]) {
+    if (config.isNotEmpty) {
+      var yaml = loadYaml(config);
+
+      for (var element in yaml["appCards"]) {
+        appCards.add(
+          AppCard(
+            link: element["link"],
+            image: element["image"],
+          ),
+        );
+      }
+    }
+
+    if (!microDisabled) {
+      var url = Uri.base;
+
+      var domainName = url.authority.replaceAll("home.", "");
+
       appCards.add(
         AppCard(
-          link: element["link"],
-          image: element["image"],
+          link: "https://micro.$domainName",
+          image: "https://home.$domainName/Logos/Fedodo-Micro-Logo.svg",
         ),
       );
     }
