@@ -1,0 +1,30 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Fedodo.UI.Home",
+            "request": "launch",
+            "type": "dart",
+            "toolArgs": [
+                // "--dart-define=CONFIG={appCards: [{link: 'https://micro.dev.fedodo.social', image: 'https://fedodo.org/images/Fedodo%20Circle.png'}, {link: 'https://micro.dev.fedodo.social', image: 'https://fedodo.org/images/Fedodo%20Circle.png'}]}",
+                "--web-port=8080",
+                "--dart-define=MICRO_DISABLED=false"
+            ],
+        },
+        {
+            "name": "Fedodo.UI.Home (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "Fedodo.UI.Home (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
